@@ -111,7 +111,7 @@ class DataCleaner:
     def read_csv(self, file_name, schema):
         """Đọc dữ liệu từ file CSV với schema đã định nghĩa."""
         try:
-            df = self.spark.read.option("header", "true").schema(schema).csv(self.data_dir + file_name)
+            df = self.spark.read.option("header", "true").option("multiLine", "true").schema(schema).csv(self.data_dir + file_name)
             return df
         except Exception as e:
             print(f"Lỗi khi đọc file {file_name}: {e}")
