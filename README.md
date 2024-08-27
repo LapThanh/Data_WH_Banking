@@ -3,7 +3,11 @@ Data_WH_Banking
 
 Đây là một dự án thiết kế và triển khai kho dữ liệu (Data Warehouse) dành cho hoạt động ngân hàng. Dự án cung cấp một khung làm việc toàn diện cho việc quản lý, chuyển đổi và phân tích dữ liệu ngân hàng, sử dụng các công cụ hiện đại như Apache Airflow, Apache Spark, PostgreSQL, và Snowflake.
 
+
+Dự án sẽ lấy data từ postgresSql, sao đó trích xuất và làm sạch bằng pandas và spark, và sẽ chứa trong snowflake để thực hiện phân tích, và lặp lịch mỗi ngày bằng airflow
+
 Tổng Quan Dự Án
+
 Trong môi trường ngân hàng đầy thách thức, việc sở hữu một kho dữ liệu mạnh mẽ và có khả năng mở rộng là vô cùng quan trọng để xử lý khối lượng lớn giao dịch, dữ liệu khách hàng, các khoản vay, đầu tư, và nhiều hơn nữa. Dự án này trình bày một giải pháp hoàn chỉnh từ việc tạo dữ liệu đến các quy trình ETL và cuối cùng là lưu trữ dữ liệu.
 
 Các Tính Năng Chính
