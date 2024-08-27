@@ -1,0 +1,745 @@
+[2024-08-26T04:53:29.839+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-26T04:53:29.869+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_spark_job manual__2024-08-26T04:48:18.534672+00:00 [queued]>
+[2024-08-26T04:53:29.879+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_spark_job manual__2024-08-26T04:48:18.534672+00:00 [queued]>
+[2024-08-26T04:53:29.879+0000] {taskinstance.py:2856} INFO - Starting attempt 2 of 2
+[2024-08-26T04:53:29.894+0000] {taskinstance.py:2879} INFO - Executing <Task(SparkSubmitOperator): run_spark_job> on 2024-08-26 04:48:18.534672+00:00
+[2024-08-26T04:53:29.902+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=1051) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-08-26T04:53:29.903+0000] {standard_task_runner.py:72} INFO - Started process 1052 to run task
+[2024-08-26T04:53:29.903+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_and_transform_dag', 'run_spark_job', 'manual__2024-08-26T04:48:18.534672+00:00', '--job-id', '174', '--raw', '--subdir', 'DAGS_FOLDER/ETL_Dags.py', '--cfg-path', '/tmp/tmpvkjyxlv2']
+[2024-08-26T04:53:29.907+0000] {standard_task_runner.py:105} INFO - Job 174: Subtask run_spark_job
+[2024-08-26T04:53:30.009+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_and_transform_dag.run_spark_job manual__2024-08-26T04:48:18.534672+00:00 [running]> on host f00445136288
+[2024-08-26T04:53:30.189+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_and_transform_dag' AIRFLOW_CTX_TASK_ID='run_spark_job' AIRFLOW_CTX_EXECUTION_DATE='2024-08-26T04:48:18.534672+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-26T04:48:18.534672+00:00'
+[2024-08-26T04:53:30.190+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-26T04:53:30.223+0000] {base.py:84} INFO - Retrieving connection 'SPARK-PROJECT'
+[2024-08-26T04:53:30.224+0000] {spark_submit.py:403} INFO - Spark-Submit cmd: spark-submit --master spark://172.18.0.3:7077 --conf spark.driver.extraClassPath=/opt/bitnami/spark/jars/spark-snowflake_2.12-2.16.0-spark_3.2.jar --conf spark.executor.extraClassPath=/opt/bitnami/spark/jars/spark-snowflake_2.12-2.16.0-spark_3.2.jar --name spark_transform_job --deploy-mode client /spark/app/transform.py
+[2024-08-26T04:53:33.089+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkContext: Running Spark version 3.5.2
+[2024-08-26T04:53:33.093+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkContext: OS info Linux, 6.6.26-linuxkit, amd64
+[2024-08-26T04:53:33.094+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkContext: Java version 17.0.12
+[2024-08-26T04:53:33.151+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-08-26T04:53:33.267+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO ResourceUtils: ==============================================================
+[2024-08-26T04:53:33.269+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2024-08-26T04:53:33.270+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO ResourceUtils: ==============================================================
+[2024-08-26T04:53:33.271+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkContext: Submitted application: DataCleaning
+[2024-08-26T04:53:33.302+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2024-08-26T04:53:33.314+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO ResourceProfile: Limiting resource is cpu
+[2024-08-26T04:53:33.315+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2024-08-26T04:53:33.371+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SecurityManager: Changing view acls to: ***
+[2024-08-26T04:53:33.372+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SecurityManager: Changing modify acls to: ***
+[2024-08-26T04:53:33.375+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SecurityManager: Changing view acls groups to:
+[2024-08-26T04:53:33.375+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SecurityManager: Changing modify acls groups to:
+[2024-08-26T04:53:33.376+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2024-08-26T04:53:33.602+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO Utils: Successfully started service 'sparkDriver' on port 44841.
+[2024-08-26T04:53:33.631+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkEnv: Registering MapOutputTracker
+[2024-08-26T04:53:33.664+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkEnv: Registering BlockManagerMaster
+[2024-08-26T04:53:33.679+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2024-08-26T04:53:33.680+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2024-08-26T04:53:33.685+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-08-26T04:53:33.703+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-3c5ecd0c-a0d6-4f7a-b0b7-a29eee0076fe
+[2024-08-26T04:53:33.718+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2024-08-26T04:53:33.734+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-08-26T04:53:33.848+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2024-08-26T04:53:33.919+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:33 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2024-08-26T04:53:34.071+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:34 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://172.18.0.3:7077...
+[2024-08-26T04:53:34.153+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:34 INFO TransportClientFactory: Successfully created connection to /172.18.0.3:7077 after 46 ms (0 ms spent in bootstraps)
+[2024-08-26T04:53:54.073+0000] {spark_submit.py:579} INFO - 24/08/26 04:53:54 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://172.18.0.3:7077...
+[2024-08-26T04:54:14.075+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:14 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://172.18.0.3:7077...
+[2024-08-26T04:54:34.077+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: All masters are unresponsive! Giving up.
+[2024-08-26T04:54:34.079+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 WARN StandaloneSchedulerBackend: Application ID is not initialized yet.
+[2024-08-26T04:54:34.096+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45935.
+[2024-08-26T04:54:34.098+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO NettyBlockTransferService: Server created on f00445136288:45935
+[2024-08-26T04:54:34.102+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2024-08-26T04:54:34.116+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, f00445136288, 45935, None)
+[2024-08-26T04:54:34.124+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManagerMasterEndpoint: Registering block manager f00445136288:45935 with 434.4 MiB RAM, BlockManagerId(driver, f00445136288, 45935, None)
+[2024-08-26T04:54:34.129+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, f00445136288, 45935, None)
+[2024-08-26T04:54:34.132+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, f00445136288, 45935, None)
+[2024-08-26T04:54:34.333+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2024-08-26T04:54:34.599+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2024-08-26T04:54:34.605+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2024-08-26T04:54:34.612+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO SparkUI: Stopped Spark web UI at http://f00445136288:4040
+[2024-08-26T04:54:34.617+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2024-08-26T04:54:34.618+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T04:54:34.622+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2024-08-26T04:54:34.628+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 WARN StandaloneAppClient$ClientEndpoint: Drop UnregisterApplication(null) because has not yet connected to master
+[2024-08-26T04:54:34.641+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2024-08-26T04:54:34.663+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO MemoryStore: MemoryStore cleared
+[2024-08-26T04:54:34.667+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManager: BlockManager stopped
+[2024-08-26T04:54:34.673+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2024-08-26T04:54:34.678+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2024-08-26T04:54:34.694+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:34 INFO SparkContext: Successfully stopped SparkContext
+[2024-08-26T04:54:35.747+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:35 INFO InMemoryFileIndex: It took 54 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:35.843+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:35 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.123+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:38.126+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#0, None)) > 0)
+[2024-08-26T04:54:38.500+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO CodeGenerator: Code generated in 207.222207 ms
+[2024-08-26T04:54:38.543+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file customers.csv: An error occurred while calling o27.csv.
+[2024-08-26T04:54:38.544+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:38.545+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:38.547+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.548+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:38.549+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:38.549+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:38.550+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:38.551+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:38.552+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:38.553+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:38.553+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.554+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:38.555+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:38.555+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:38.556+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.557+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.558+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.558+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.559+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:38.560+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.561+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:38.561+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.562+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:38.563+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:38.564+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:38.565+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:38.566+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:38.567+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:38.568+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:38.569+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:38.570+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:38.570+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:38.571+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.572+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.572+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.573+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.574+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.574+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:38.575+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:38.575+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:38.576+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:38.576+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:38.577+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:38.577+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.578+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.578+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.579+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.579+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.580+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:38.580+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:38.580+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:38.581+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:38.581+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:38.582+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:38.583+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:38.584+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:38.584+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:38.585+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:38.585+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:38.586+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:38.587+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:38.587+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:38.588+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:38.589+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:38.589+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:38.590+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:38.590+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:38.590+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:38.590+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:38.591+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:38.591+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:38.591+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:38.591+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:38.592+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:38.592+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:38.592+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:38.592+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:38.593+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:38.593+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:38.593+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:38.593+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:38.594+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:38.594+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.594+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:38.594+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:38.595+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:38.595+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.596+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.596+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.596+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.596+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.597+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.664+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:38.665+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#14, None)) > 0)
+[2024-08-26T04:54:38.701+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file accounts.csv: An error occurred while calling o32.csv.
+[2024-08-26T04:54:38.702+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:38.703+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:38.703+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.704+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:38.705+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:38.705+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:38.706+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:38.707+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:38.709+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:38.710+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:38.711+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.712+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:38.712+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:38.713+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:38.714+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.715+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.716+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.716+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.717+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:38.717+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.719+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:38.720+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.721+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:38.722+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:38.722+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:38.725+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:38.726+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:38.727+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:38.729+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:38.730+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:38.731+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:38.732+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:38.732+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.734+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.734+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.735+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.736+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.736+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:38.737+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:38.738+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:38.739+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:38.739+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:38.740+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:38.741+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.741+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.742+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.743+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.743+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.744+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:38.745+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:38.745+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:38.746+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:38.746+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:38.748+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:38.748+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:38.750+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:38.751+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:38.751+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:38.752+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:38.753+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:38.754+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:38.754+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:38.754+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:38.754+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:38.755+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:38.755+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:38.756+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:38.756+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:38.756+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:38.757+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:38.757+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:38.758+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:38.758+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:38.758+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:38.759+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:38.759+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:38.759+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:38.760+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:38.760+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:38.760+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:38.761+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:38.761+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:38.762+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.762+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:38.762+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:38.763+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:38.763+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.763+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.764+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.764+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.764+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.765+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.798+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:38.799+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#28, None)) > 0)
+[2024-08-26T04:54:38.833+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file transactions.csv: An error occurred while calling o37.csv.
+[2024-08-26T04:54:38.834+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:38.834+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:38.835+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.836+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:38.836+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:38.837+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:38.838+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:38.839+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:38.840+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:38.841+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:38.841+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.842+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:38.843+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:38.844+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:38.844+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.845+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.845+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.845+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.846+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:38.846+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.847+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:38.847+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.847+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:38.848+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:38.848+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:38.848+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:38.849+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:38.849+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:38.850+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:38.850+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:38.850+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:38.851+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:38.851+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.852+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.852+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.852+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.855+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.855+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:38.856+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:38.856+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:38.859+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:38.859+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:38.860+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:38.860+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.861+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.861+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.862+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.863+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.863+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:38.864+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:38.865+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:38.865+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:38.866+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:38.867+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:38.867+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:38.868+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:38.868+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:38.868+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:38.869+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:38.869+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:38.869+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:38.870+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:38.870+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:38.871+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:38.871+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:38.872+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:38.872+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:38.873+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:38.873+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:38.873+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:38.874+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:38.874+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:38.874+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:38.875+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:38.875+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:38.875+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:38.876+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:38.876+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:38.877+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:38.877+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:38.878+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:38.878+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:38.879+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.880+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:38.880+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:38.881+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:38.881+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.882+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.882+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.882+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.883+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.883+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:38.921+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:38.922+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#42, None)) > 0)
+[2024-08-26T04:54:38.957+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file branches.csv: An error occurred while calling o42.csv.
+[2024-08-26T04:54:38.958+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:38.958+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:38.959+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.960+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:38.963+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:38.965+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:38.966+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:38.967+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:38.968+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:38.969+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:38.970+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:38.971+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:38.972+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:38.972+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:38.973+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:38.974+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:38.975+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:38.976+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.977+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:38.978+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.979+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:38.980+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:38.980+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:38.981+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:38.982+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:38.983+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:38.983+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:38.984+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:38.984+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:38.985+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:38.986+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:38.987+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:38.988+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.989+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.990+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.990+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.990+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.991+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:38.992+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:38.992+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:38.993+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:38.993+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:38.994+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:38.994+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:38.995+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:38.995+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:38.996+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:38.996+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:38.996+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:38.997+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:38.997+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:38.997+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:38.998+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:38.999+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:38.999+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:39.000+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:39.001+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:39.001+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:39.002+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:39.002+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:39.003+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:39.004+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:39.004+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:39.005+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:39.005+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:39.006+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:39.006+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:39.007+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:39.007+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:39.008+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:39.008+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:39.009+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:39.009+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:39.010+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.010+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:39.011+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.011+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:39.012+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:39.013+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:39.013+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:39.014+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:39.014+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:39.015+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.015+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:39.016+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:39.016+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:39.017+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.017+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.018+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.018+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.019+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 4 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:39.019+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:38 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:39.048+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:39.049+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#56, None)) > 0)
+[2024-08-26T04:54:39.087+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file loans.csv: An error occurred while calling o47.csv.
+[2024-08-26T04:54:39.088+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:39.090+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:39.091+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.092+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:39.093+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:39.095+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:39.096+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:39.096+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:39.097+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:39.098+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:39.099+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.100+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:39.101+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:39.101+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:39.102+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.103+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.104+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.104+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.105+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:39.106+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.106+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:39.107+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.108+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:39.109+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:39.110+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:39.111+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:39.112+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:39.112+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:39.117+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:39.118+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:39.118+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:39.119+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:39.119+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:39.120+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:39.120+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:39.121+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:39.121+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:39.122+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:39.123+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:39.124+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:39.124+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:39.125+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:39.127+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:39.130+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:39.130+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:39.131+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:39.131+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:39.132+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:39.132+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:39.133+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:39.133+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:39.133+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:39.134+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:39.134+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:39.135+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:39.135+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:39.136+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:39.137+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:39.137+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:39.137+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:39.138+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:39.138+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:39.139+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:39.139+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:39.139+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:39.140+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:39.140+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:39.141+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:39.141+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:39.144+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:39.144+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:39.145+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:39.145+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:39.145+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.146+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:39.147+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.147+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:39.147+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:39.148+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:39.148+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:39.148+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:39.149+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:39.149+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.149+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:39.150+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:39.151+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:39.151+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.151+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.152+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.152+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.152+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO InMemoryFileIndex: It took 3 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:39.153+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:39.203+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:39.204+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#70, None)) > 0)
+[2024-08-26T04:54:39.239+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file credit_cards.csv: An error occurred while calling o52.csv.
+[2024-08-26T04:54:39.240+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:39.241+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:39.242+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.243+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:39.244+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:39.247+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:39.248+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:39.249+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:39.250+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:39.251+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:39.252+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.253+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:39.253+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:39.253+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:39.254+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.257+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.258+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.259+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.260+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:39.261+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.262+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:39.263+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.263+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:39.264+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:39.265+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:39.266+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:39.267+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:39.268+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:39.269+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:39.269+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:39.270+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:39.271+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:39.271+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:39.272+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:39.273+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:39.273+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:39.274+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:39.275+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:39.276+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:39.276+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:39.277+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:39.278+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:39.279+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:39.280+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:39.281+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:39.281+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:39.282+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:39.283+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:39.283+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:39.284+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:39.285+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:39.286+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:39.287+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:39.287+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:39.288+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:39.290+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:39.291+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:39.293+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:39.293+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:39.294+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:39.294+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:39.294+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:39.295+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:39.295+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:39.295+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:39.296+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:39.296+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:39.296+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:39.297+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:39.297+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:39.297+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:39.298+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:39.298+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:39.298+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.299+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:39.299+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.299+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:39.299+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:39.300+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:39.300+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:39.301+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:39.301+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:39.302+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.303+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:39.303+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:39.304+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:39.304+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.306+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.306+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.306+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.307+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO InMemoryFileIndex: It took 2 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:39.308+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO InMemoryFileIndex: It took 1 ms to list leaf files for 1 paths.
+[2024-08-26T04:54:39.334+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO FileSourceStrategy: Pushed Filters:
+[2024-08-26T04:54:39.336+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO FileSourceStrategy: Post-Scan Filters: (length(trim(value#84, None)) > 0)
+[2024-08-26T04:54:39.380+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file investments.csv: An error occurred while calling o57.csv.
+[2024-08-26T04:54:39.380+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: Cannot call methods on a stopped SparkContext.
+[2024-08-26T04:54:39.381+0000] {spark_submit.py:579} INFO - This stopped SparkContext was created at:
+[2024-08-26T04:54:39.382+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.382+0000] {spark_submit.py:579} INFO - org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:58)
+[2024-08-26T04:54:39.383+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[2024-08-26T04:54:39.385+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+[2024-08-26T04:54:39.386+0000] {spark_submit.py:579} INFO - java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[2024-08-26T04:54:39.387+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+[2024-08-26T04:54:39.387+0000] {spark_submit.py:579} INFO - java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+[2024-08-26T04:54:39.388+0000] {spark_submit.py:579} INFO - py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:247)
+[2024-08-26T04:54:39.389+0000] {spark_submit.py:579} INFO - py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.389+0000] {spark_submit.py:579} INFO - py4j.Gateway.invoke(Gateway.java:238)
+[2024-08-26T04:54:39.390+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.invokeConstructor(ConstructorCommand.java:80)
+[2024-08-26T04:54:39.390+0000] {spark_submit.py:579} INFO - py4j.commands.ConstructorCommand.execute(ConstructorCommand.java:69)
+[2024-08-26T04:54:39.391+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.391+0000] {spark_submit.py:579} INFO - py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.392+0000] {spark_submit.py:579} INFO - java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.393+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.393+0000] {spark_submit.py:579} INFO - The currently active SparkContext was created at:
+[2024-08-26T04:54:39.394+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.395+0000] {spark_submit.py:579} INFO - (No active SparkContext.)
+[2024-08-26T04:54:39.395+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.396+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.assertNotStopped(SparkContext.scala:122)
+[2024-08-26T04:54:39.396+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcastInternal(SparkContext.scala:1654)
+[2024-08-26T04:54:39.397+0000] {spark_submit.py:579} INFO - at org.apache.spark.SparkContext.broadcast(SparkContext.scala:1639)
+[2024-08-26T04:54:39.398+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.text.TextFileFormat.buildReader(TextFileFormat.scala:106)
+[2024-08-26T04:54:39.398+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues(FileFormat.scala:138)
+[2024-08-26T04:54:39.399+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.FileFormat.buildReaderWithPartitionValues$(FileFormat.scala:129)
+[2024-08-26T04:54:39.399+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.TextBasedFileFormat.buildReaderWithPartitionValues(FileFormat.scala:346)
+[2024-08-26T04:54:39.400+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD$lzycompute(DataSourceScanExec.scala:548)
+[2024-08-26T04:54:39.401+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.inputRDD(DataSourceScanExec.scala:537)
+[2024-08-26T04:54:39.401+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FileSourceScanExec.doExecute(DataSourceScanExec.scala:575)
+[2024-08-26T04:54:39.402+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:39.402+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:39.403+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:39.404+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:39.405+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:39.405+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDD(WholeStageCodegenExec.scala:527)
+[2024-08-26T04:54:39.406+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs(WholeStageCodegenExec.scala:455)
+[2024-08-26T04:54:39.407+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputRDDCodegen.inputRDDs$(WholeStageCodegenExec.scala:454)
+[2024-08-26T04:54:39.407+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.InputAdapter.inputRDDs(WholeStageCodegenExec.scala:498)
+[2024-08-26T04:54:39.408+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.FilterExec.inputRDDs(basicPhysicalOperators.scala:242)
+[2024-08-26T04:54:39.409+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.WholeStageCodegenExec.doExecute(WholeStageCodegenExec.scala:751)
+[2024-08-26T04:54:39.409+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$execute$1(SparkPlan.scala:195)
+[2024-08-26T04:54:39.410+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.$anonfun$executeQuery$1(SparkPlan.scala:246)
+[2024-08-26T04:54:39.410+0000] {spark_submit.py:579} INFO - at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+[2024-08-26T04:54:39.410+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:243)
+[2024-08-26T04:54:39.411+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:191)
+[2024-08-26T04:54:39.411+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.getByteArrayRdd(SparkPlan.scala:364)
+[2024-08-26T04:54:39.412+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:498)
+[2024-08-26T04:54:39.412+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SparkPlan.executeTake(SparkPlan.scala:483)
+[2024-08-26T04:54:39.413+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.CollectLimitExec.executeCollect(limit.scala:61)
+[2024-08-26T04:54:39.413+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.collectFromPlan(Dataset.scala:4334)
+[2024-08-26T04:54:39.414+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$head$1(Dataset.scala:3316)
+[2024-08-26T04:54:39.414+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$2(Dataset.scala:4324)
+[2024-08-26T04:54:39.415+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+[2024-08-26T04:54:39.415+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.$anonfun$withAction$1(Dataset.scala:4322)
+[2024-08-26T04:54:39.415+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:125)
+[2024-08-26T04:54:39.416+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+[2024-08-26T04:54:39.416+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+[2024-08-26T04:54:39.417+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+[2024-08-26T04:54:39.417+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+[2024-08-26T04:54:39.418+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4322)
+[2024-08-26T04:54:39.419+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+[2024-08-26T04:54:39.419+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+[2024-08-26T04:54:39.419+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.TextInputCSVDataSource$.infer(CSVDataSource.scala:111)
+[2024-08-26T04:54:39.420+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVDataSource.inferSchema(CSVDataSource.scala:64)
+[2024-08-26T04:54:39.420+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.csv.CSVFileFormat.inferSchema(CSVFileFormat.scala:62)
+[2024-08-26T04:54:39.420+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.$anonfun$getOrInferFileFormatSchema$11(DataSource.scala:208)
+[2024-08-26T04:54:39.421+0000] {spark_submit.py:579} INFO - at scala.Option.orElse(Option.scala:447)
+[2024-08-26T04:54:39.421+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.getOrInferFileFormatSchema(DataSource.scala:205)
+[2024-08-26T04:54:39.421+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.execution.datasources.DataSource.resolveRelation(DataSource.scala:407)
+[2024-08-26T04:54:39.422+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.loadV1Source(DataFrameReader.scala:229)
+[2024-08-26T04:54:39.422+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.$anonfun$load$2(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.422+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T04:54:39.422+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.load(DataFrameReader.scala:211)
+[2024-08-26T04:54:39.423+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.csv(DataFrameReader.scala:538)
+[2024-08-26T04:54:39.423+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T04:54:39.423+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T04:54:39.423+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T04:54:39.424+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T04:54:39.424+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T04:54:39.424+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T04:54:39.425+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T04:54:39.425+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T04:54:39.425+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T04:54:39.426+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T04:54:39.426+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T04:54:39.426+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T04:54:39.427+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T04:54:39.427+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2024-08-26T04:54:39.428+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO SparkContext: SparkContext already stopped.
+[2024-08-26T04:54:39.969+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO ShutdownHookManager: Shutdown hook called
+[2024-08-26T04:54:39.971+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-7618f4a0-d56e-42f0-9442-111685bdb872
+[2024-08-26T04:54:39.981+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-4730dd68-ce80-4706-813b-f150ac461b0e/pyspark-2aabe70f-4651-4290-bfa0-e24577c7e5cd
+[2024-08-26T04:54:39.992+0000] {spark_submit.py:579} INFO - 24/08/26 04:54:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-4730dd68-ce80-4706-813b-f150ac461b0e
+[2024-08-26T04:54:40.106+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-26T04:54:40.107+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_and_transform_dag, task_id=run_spark_job, run_id=manual__2024-08-26T04:48:18.534672+00:00, execution_date=20240826T044818, start_date=20240826T045329, end_date=20240826T045440
+[2024-08-26T04:54:40.186+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-26T04:54:40.210+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-26T04:54:40.213+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

@@ -1,0 +1,30 @@
+[2024-08-26T04:48:19.659+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-26T04:48:19.682+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_python_script manual__2024-08-26T04:48:18.534672+00:00 [queued]>
+[2024-08-26T04:48:19.693+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_python_script manual__2024-08-26T04:48:18.534672+00:00 [queued]>
+[2024-08-26T04:48:19.693+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 2
+[2024-08-26T04:48:19.707+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): run_python_script> on 2024-08-26 04:48:18.534672+00:00
+[2024-08-26T04:48:19.715+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=663) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-08-26T04:48:19.714+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_and_transform_dag', 'run_python_script', 'manual__2024-08-26T04:48:18.534672+00:00', '--job-id', '170', '--raw', '--subdir', 'DAGS_FOLDER/ETL_Dags.py', '--cfg-path', '/tmp/tmp936khvdv']
+[2024-08-26T04:48:19.716+0000] {standard_task_runner.py:72} INFO - Started process 664 to run task
+[2024-08-26T04:48:19.716+0000] {standard_task_runner.py:105} INFO - Job 170: Subtask run_python_script
+[2024-08-26T04:48:19.808+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_and_transform_dag.run_python_script manual__2024-08-26T04:48:18.534672+00:00 [running]> on host f00445136288
+[2024-08-26T04:48:19.956+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_and_transform_dag' AIRFLOW_CTX_TASK_ID='run_python_script' AIRFLOW_CTX_EXECUTION_DATE='2024-08-26T04:48:18.534672+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-26T04:48:18.534672+00:00'
+[2024-08-26T04:48:19.957+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-26T04:48:19.973+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-08-26T04:48:19.974+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /spark/app/extract.py']
+[2024-08-26T04:48:19.985+0000] {subprocess.py:86} INFO - Output:
+[2024-08-26T04:48:21.951+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/customers.csv
+[2024-08-26T04:48:21.952+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/accounts.csv
+[2024-08-26T04:48:21.952+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/transactions.csv
+[2024-08-26T04:48:21.953+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/branches.csv
+[2024-08-26T04:48:21.953+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/loans.csv
+[2024-08-26T04:48:21.953+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/credit_cards.csv
+[2024-08-26T04:48:21.955+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/transaction_history.csv
+[2024-08-26T04:48:21.956+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/payment.csv
+[2024-08-26T04:48:21.957+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /opt/***/data/investments.csv
+[2024-08-26T04:48:22.126+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-08-26T04:48:22.170+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-26T04:48:22.170+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_and_transform_dag, task_id=run_python_script, run_id=manual__2024-08-26T04:48:18.534672+00:00, execution_date=20240826T044818, start_date=20240826T044819, end_date=20240826T044822
+[2024-08-26T04:48:22.194+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-26T04:48:22.245+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-26T04:48:22.248+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

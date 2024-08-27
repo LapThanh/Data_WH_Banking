@@ -1,0 +1,30 @@
+[2024-08-27T08:36:08.860+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-27T08:36:08.881+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_python_script manual__2024-08-27T08:31:05.266970+00:00 [queued]>
+[2024-08-27T08:36:08.892+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_python_script manual__2024-08-27T08:31:05.266970+00:00 [queued]>
+[2024-08-27T08:36:08.892+0000] {taskinstance.py:2856} INFO - Starting attempt 2 of 2
+[2024-08-27T08:36:08.908+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): run_python_script> on 2024-08-27 08:31:05.266970+00:00
+[2024-08-27T08:36:08.917+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=8702) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-08-27T08:36:08.916+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_and_transform_dag', 'run_python_script', 'manual__2024-08-27T08:31:05.266970+00:00', '--job-id', '199', '--raw', '--subdir', 'DAGS_FOLDER/ETL_Dags.py', '--cfg-path', '/tmp/tmp1r8jl4jn']
+[2024-08-27T08:36:08.918+0000] {standard_task_runner.py:72} INFO - Started process 8703 to run task
+[2024-08-27T08:36:08.918+0000] {standard_task_runner.py:105} INFO - Job 199: Subtask run_python_script
+[2024-08-27T08:36:09.010+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_and_transform_dag.run_python_script manual__2024-08-27T08:31:05.266970+00:00 [running]> on host 6ac8cf047f5e
+[2024-08-27T08:36:09.197+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_and_transform_dag' AIRFLOW_CTX_TASK_ID='run_python_script' AIRFLOW_CTX_EXECUTION_DATE='2024-08-27T08:31:05.266970+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-27T08:31:05.266970+00:00'
+[2024-08-27T08:36:09.198+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-27T08:36:09.221+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-08-27T08:36:09.222+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /spark/app/extract.py']
+[2024-08-27T08:36:09.243+0000] {subprocess.py:86} INFO - Output:
+[2024-08-27T08:36:11.177+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/customers.csv
+[2024-08-27T08:36:11.178+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/accounts.csv
+[2024-08-27T08:36:11.179+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/transactions.csv
+[2024-08-27T08:36:11.179+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/branches.csv
+[2024-08-27T08:36:11.180+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/loans.csv
+[2024-08-27T08:36:11.181+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/credit_cards.csv
+[2024-08-27T08:36:11.182+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/transaction_history.csv
+[2024-08-27T08:36:11.183+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/payment.csv
+[2024-08-27T08:36:11.183+0000] {subprocess.py:93} INFO - Dữ liệu đã được lưu vào /data/investments.csv
+[2024-08-27T08:36:11.378+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-08-27T08:36:11.415+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-27T08:36:11.416+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_and_transform_dag, task_id=run_python_script, run_id=manual__2024-08-27T08:31:05.266970+00:00, execution_date=20240827T083105, start_date=20240827T083608, end_date=20240827T083611
+[2024-08-27T08:36:11.477+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-27T08:36:11.525+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2024-08-27T08:36:11.529+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

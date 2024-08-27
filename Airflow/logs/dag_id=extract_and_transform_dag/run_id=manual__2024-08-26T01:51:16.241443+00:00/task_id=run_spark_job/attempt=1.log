@@ -1,0 +1,287 @@
+[2024-08-26T01:51:20.005+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-26T01:51:20.039+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_spark_job manual__2024-08-26T01:51:16.241443+00:00 [queued]>
+[2024-08-26T01:51:20.056+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_and_transform_dag.run_spark_job manual__2024-08-26T01:51:16.241443+00:00 [queued]>
+[2024-08-26T01:51:20.057+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 2
+[2024-08-26T01:51:20.074+0000] {taskinstance.py:2879} INFO - Executing <Task(SparkSubmitOperator): run_spark_job> on 2024-08-26 01:51:16.241443+00:00
+[2024-08-26T01:51:20.083+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=400) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-08-26T01:51:20.084+0000] {standard_task_runner.py:72} INFO - Started process 401 to run task
+[2024-08-26T01:51:20.083+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_and_transform_dag', 'run_spark_job', 'manual__2024-08-26T01:51:16.241443+00:00', '--job-id', '155', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp1pvjv9b5']
+[2024-08-26T01:51:20.085+0000] {standard_task_runner.py:105} INFO - Job 155: Subtask run_spark_job
+[2024-08-26T01:51:20.148+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_and_transform_dag.run_spark_job manual__2024-08-26T01:51:16.241443+00:00 [running]> on host 1b531588a971
+[2024-08-26T01:51:20.253+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_and_transform_dag' AIRFLOW_CTX_TASK_ID='run_spark_job' AIRFLOW_CTX_EXECUTION_DATE='2024-08-26T01:51:16.241443+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-26T01:51:16.241443+00:00'
+[2024-08-26T01:51:20.254+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-26T01:51:20.295+0000] {base.py:84} INFO - Retrieving connection 'SPARK-PROJECT'
+[2024-08-26T01:51:20.297+0000] {spark_submit.py:403} INFO - Spark-Submit cmd: spark-submit --master spark://spark:7077 --conf spark.driver.extraClassPath=/opt/bitnami/spark/jars/spark-snowflake_2.12-2.16.0-spark_3.2.jar --conf spark.executor.extraClassPath=/opt/bitnami/spark/jars/spark-snowflake_2.12-2.16.0-spark_3.2.jar --name spark_transform_job --deploy-mode client /spark/app/transform.py
+[2024-08-26T01:51:22.935+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:22 INFO SparkContext: Running Spark version 3.5.2
+[2024-08-26T01:51:22.941+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:22 INFO SparkContext: OS info Linux, 6.6.26-linuxkit, amd64
+[2024-08-26T01:51:22.942+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:22 INFO SparkContext: Java version 17.0.12
+[2024-08-26T01:51:23.014+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2024-08-26T01:51:23.111+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO ResourceUtils: ==============================================================
+[2024-08-26T01:51:23.112+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO ResourceUtils: No custom resources configured for spark.driver.
+[2024-08-26T01:51:23.114+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO ResourceUtils: ==============================================================
+[2024-08-26T01:51:23.115+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SparkContext: Submitted application: DataCleaning
+[2024-08-26T01:51:23.155+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(memory -> name: memory, amount: 1024, script: , vendor: , offHeap -> name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -> name: cpus, amount: 1.0)
+[2024-08-26T01:51:23.170+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO ResourceProfile: Limiting resource is cpu
+[2024-08-26T01:51:23.172+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO ResourceProfileManager: Added ResourceProfile id: 0
+[2024-08-26T01:51:23.275+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SecurityManager: Changing view acls to: ***
+[2024-08-26T01:51:23.277+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SecurityManager: Changing modify acls to: ***
+[2024-08-26T01:51:23.278+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SecurityManager: Changing view acls groups to:
+[2024-08-26T01:51:23.279+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SecurityManager: Changing modify acls groups to:
+[2024-08-26T01:51:23.281+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: ***; groups with view permissions: EMPTY; users with modify permissions: ***; groups with modify permissions: EMPTY
+[2024-08-26T01:51:23.590+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO Utils: Successfully started service 'sparkDriver' on port 34229.
+[2024-08-26T01:51:23.625+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SparkEnv: Registering MapOutputTracker
+[2024-08-26T01:51:23.665+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SparkEnv: Registering BlockManagerMaster
+[2024-08-26T01:51:23.684+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+[2024-08-26T01:51:23.685+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+[2024-08-26T01:51:23.691+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+[2024-08-26T01:51:23.712+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-32106780-5c0f-42d0-abd6-fa279ab69e23
+[2024-08-26T01:51:23.730+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+[2024-08-26T01:51:23.750+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO SparkEnv: Registering OutputCommitCoordinator
+[2024-08-26T01:51:23.878+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+[2024-08-26T01:51:23.954+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:23 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+[2024-08-26T01:51:24.091+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:24 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark:7077...
+[2024-08-26T01:51:24.139+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:24 INFO TransportClientFactory: Successfully created connection to spark/172.18.0.4:7077 after 27 ms (0 ms spent in bootstraps)
+[2024-08-26T01:51:44.105+0000] {spark_submit.py:579} INFO - 24/08/26 01:51:44 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark:7077...
+[2024-08-26T01:52:04.771+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:04 INFO StandaloneAppClient$ClientEndpoint: Connecting to master spark://spark:7077...
+[2024-08-26T01:52:24.773+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 WARN StandaloneSchedulerBackend: Application ID is not initialized yet.
+[2024-08-26T01:52:24.775+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 ERROR StandaloneSchedulerBackend: Application has been killed. Reason: All masters are unresponsive! Giving up.
+[2024-08-26T01:52:24.792+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41953.
+[2024-08-26T01:52:24.794+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO NettyBlockTransferService: Server created on 1b531588a971:41953
+[2024-08-26T01:52:24.798+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+[2024-08-26T01:52:24.812+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 1b531588a971, 41953, None)
+[2024-08-26T01:52:24.821+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO BlockManagerMasterEndpoint: Registering block manager 1b531588a971:41953 with 434.4 MiB RAM, BlockManagerId(driver, 1b531588a971, 41953, None)
+[2024-08-26T01:52:24.827+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 1b531588a971, 41953, None)
+[2024-08-26T01:52:24.830+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:24 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 1b531588a971, 41953, None)
+[2024-08-26T01:52:25.018+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+[2024-08-26T01:52:25.286+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2024-08-26T01:52:25.298+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SparkUI: Stopped Spark web UI at http://1b531588a971:4040
+[2024-08-26T01:52:25.304+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO StandaloneSchedulerBackend: Shutting down all executors
+[2024-08-26T01:52:25.309+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO StandaloneSchedulerBackend$StandaloneDriverEndpoint: Asking each executor to shut down
+[2024-08-26T01:52:25.315+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 WARN StandaloneAppClient$ClientEndpoint: Drop UnregisterApplication(null) because has not yet connected to master
+[2024-08-26T01:52:25.327+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+[2024-08-26T01:52:25.327+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('null') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.340+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.344+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO MemoryStore: MemoryStore cleared
+[2024-08-26T01:52:25.345+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO BlockManager: BlockManager stopped
+[2024-08-26T01:52:25.354+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO BlockManagerMaster: BlockManagerMaster stopped
+[2024-08-26T01:52:25.360+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+[2024-08-26T01:52:25.373+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SparkContext: Successfully stopped SparkContext
+[2024-08-26T01:52:25.393+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file customers.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.394+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.394+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.394+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.395+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.396+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.396+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.397+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.398+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.399+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.399+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.400+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.400+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.400+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.401+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.402+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.402+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.403+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.403+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.405+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.405+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.406+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.406+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.407+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.408+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.408+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.409+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.410+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.410+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('file:/opt/***/spark-warehouse') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.411+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.429+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file accounts.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.430+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.430+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.431+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.431+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.432+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.433+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.433+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.434+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.435+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.435+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.436+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.436+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.437+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.437+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.438+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.438+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.439+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.440+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.440+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.442+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.443+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.443+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.444+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.444+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.445+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.446+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.446+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.447+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('file:/opt/***/spark-warehouse') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.448+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.465+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file transactions.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.466+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.467+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.467+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.468+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.469+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.469+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.470+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.471+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.471+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.472+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.472+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.473+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.474+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.474+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.475+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.475+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.476+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.477+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.477+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.478+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.478+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.479+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.480+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.480+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.481+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.482+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.483+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.483+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('file:/opt/***/spark-warehouse') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.484+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.504+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file branches.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.504+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.505+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.505+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.506+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.506+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.507+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.508+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.508+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.509+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.511+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.521+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.521+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.522+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.523+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.523+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.524+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.525+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.525+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.526+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.527+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.527+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.528+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.528+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.529+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.530+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.531+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.532+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.534+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('file:/opt/***/spark-warehouse') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.535+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.542+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file loans.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.542+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.543+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.543+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.544+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.545+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.546+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.547+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.547+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.548+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.548+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.549+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.550+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.551+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.552+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.553+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.554+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.555+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.555+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.556+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.557+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.557+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.558+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.558+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.559+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.559+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.560+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.561+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.562+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('file:/opt/***/spark-warehouse') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.563+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.576+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file credit_cards.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.577+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.577+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.578+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.579+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.579+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.580+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.581+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.582+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.582+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.583+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.584+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.584+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.585+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.585+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.586+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.586+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.587+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.587+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.588+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.589+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.589+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.590+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.590+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.590+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.591+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.592+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.592+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.593+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Setting hive.metastore.warehouse.dir ('file:/opt/***/spark-warehouse') to the value of spark.sql.warehouse.dir.
+[2024-08-26T01:52:25.594+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SharedState: Warehouse path is 'file:/opt/***/spark-warehouse'.
+[2024-08-26T01:52:25.611+0000] {spark_submit.py:579} INFO - Lỗi khi đọc file investments.csv: An error occurred while calling o25.read.
+[2024-08-26T01:52:25.612+0000] {spark_submit.py:579} INFO - : java.lang.IllegalStateException: LiveListenerBus is stopped.
+[2024-08-26T01:52:25.613+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToQueue(LiveListenerBus.scala:92)
+[2024-08-26T01:52:25.614+0000] {spark_submit.py:579} INFO - at org.apache.spark.scheduler.LiveListenerBus.addToStatusQueue(LiveListenerBus.scala:75)
+[2024-08-26T01:52:25.615+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.internal.SharedState.<init>(SharedState.scala:115)
+[2024-08-26T01:52:25.615+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sharedState$1(SparkSession.scala:143)
+[2024-08-26T01:52:25.616+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.616+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState$lzycompute(SparkSession.scala:143)
+[2024-08-26T01:52:25.617+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sharedState(SparkSession.scala:142)
+[2024-08-26T01:52:25.618+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.$anonfun$sessionState$2(SparkSession.scala:162)
+[2024-08-26T01:52:25.618+0000] {spark_submit.py:579} INFO - at scala.Option.getOrElse(Option.scala:189)
+[2024-08-26T01:52:25.618+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState$lzycompute(SparkSession.scala:160)
+[2024-08-26T01:52:25.619+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.sessionState(SparkSession.scala:157)
+[2024-08-26T01:52:25.619+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.DataFrameReader.<init>(DataFrameReader.scala:699)
+[2024-08-26T01:52:25.620+0000] {spark_submit.py:579} INFO - at org.apache.spark.sql.SparkSession.read(SparkSession.scala:783)
+[2024-08-26T01:52:25.621+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[2024-08-26T01:52:25.621+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[2024-08-26T01:52:25.622+0000] {spark_submit.py:579} INFO - at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[2024-08-26T01:52:25.623+0000] {spark_submit.py:579} INFO - at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[2024-08-26T01:52:25.623+0000] {spark_submit.py:579} INFO - at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+[2024-08-26T01:52:25.624+0000] {spark_submit.py:579} INFO - at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+[2024-08-26T01:52:25.625+0000] {spark_submit.py:579} INFO - at py4j.Gateway.invoke(Gateway.java:282)
+[2024-08-26T01:52:25.626+0000] {spark_submit.py:579} INFO - at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+[2024-08-26T01:52:25.626+0000] {spark_submit.py:579} INFO - at py4j.commands.CallCommand.execute(CallCommand.java:79)
+[2024-08-26T01:52:25.627+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+[2024-08-26T01:52:25.627+0000] {spark_submit.py:579} INFO - at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+[2024-08-26T01:52:25.628+0000] {spark_submit.py:579} INFO - at java.base/java.lang.Thread.run(Thread.java:840)
+[2024-08-26T01:52:25.628+0000] {spark_submit.py:579} INFO - 
+[2024-08-26T01:52:25.629+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SparkContext: SparkContext is stopping with exitCode 0.
+[2024-08-26T01:52:25.630+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:25 INFO SparkContext: SparkContext already stopped.
+[2024-08-26T01:52:26.121+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:26 INFO ShutdownHookManager: Shutdown hook called
+[2024-08-26T01:52:26.123+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:26 INFO ShutdownHookManager: Deleting directory /tmp/spark-323c6b22-c5aa-4c1c-8f3c-489d38ec998f
+[2024-08-26T01:52:26.134+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:26 INFO ShutdownHookManager: Deleting directory /tmp/spark-28cb69df-636a-4641-93bc-8f385b80001f/pyspark-a3eee67e-8c54-43c3-ae7e-66ee6ee042d2
+[2024-08-26T01:52:26.146+0000] {spark_submit.py:579} INFO - 24/08/26 01:52:26 INFO ShutdownHookManager: Deleting directory /tmp/spark-28cb69df-636a-4641-93bc-8f385b80001f
+[2024-08-26T01:52:26.244+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-26T01:52:26.246+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_and_transform_dag, task_id=run_spark_job, run_id=manual__2024-08-26T01:51:16.241443+00:00, execution_date=20240826T015116, start_date=20240826T015120, end_date=20240826T015226
+[2024-08-26T01:52:26.302+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-26T01:52:26.348+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-26T01:52:26.352+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

@@ -1,0 +1,123 @@
+version: "3.8"
+services:  
+    # Postgres used by Airflow
+    postgres:
+        image: postgres:13.6
+        networks:
+            - Bank_DB
+        environment:
+            - POSTGRES_USER=airflow
+            - POSTGRES_PASSWORD=airflow
+            - POSTGRES_DB=Airflow_Bank_DB
+        volumes:
+            - "../postgres:/var/lib/postgresql/data"
+        ports:
+            - "5433:5432" 
+
+    airflow-webserver:
+        build:
+            context: . # Thư mục chứa Dockerfile
+            dockerfile: Dockerfile # Tên Dockerfile nếu không phải là Dockerfile mặc định
+        restart: always
+        entrypoint: ['/usr/local/entrypoint.sh']
+        networks:
+            - Bank_DB
+        depends_on:
+            - postgres
+        environment:
+            - AIRFLOW__CORE__LOAD_EXAMPLES=False
+            - AIRFLOW__CORE__EXECUTOR=airflow.executors.local_executor.LocalExecutor
+            - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/Airflow_Bank_DB
+            - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN_LOCAL=postgresql+psycopg2://postgres:123456@host.docker.internal:5432/Bank_DB
+            - AIRFLOW__CORE__TEST_CONNECTION=Enabled
+        volumes:
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/dags:/opt/airflow/dags # DAGs folder
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/logs:/opt/airflow/logs # Logs
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/plugins:/opt/airflow/plugins
+            - /home/lapthanh/Documents/DW_PROJECT/entrypoint.sh:/usr/local/entrypoint.sh
+            - /home/lapthanh/Documents/DW_PROJECT/requirements.txt:/usr/local/requirements.txt
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/spark/app:/spark/app
+            - /home/lapthanh/Documents/DW_PROJECT/data:/data
+            - /home/lapthanh/Documents/DW_PROJECT/generate_fake_Data:/opt/airflow/fake
+        ports:
+            - "8080:8080" # host:container
+        command: webserver
+        healthcheck:
+            test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
+            interval: 30s
+            timeout: 30s
+            retries: 3
+
+    airflow-scheduler:
+        build:
+            context: . # Thư mục chứa Dockerfile
+            dockerfile: Dockerfile # Tên Dockerfile nếu không phải là Dockerfile mặc định
+        networks:
+            - Bank_DB
+        depends_on:
+            - postgres
+        environment:
+            - AIRFLOW__CORE__LOAD_EXAMPLES=False
+            - AIRFLOW__CORE__EXECUTOR=airflow.executors.local_executor.LocalExecutor
+            - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN=postgresql+psycopg2://airflow:airflow@postgres:5432/Airflow_Bank_DB
+            - AIRFLOW__DATABASE__SQL_ALCHEMY_CONN_LOCAL=postgresql+psycopg2://postgres:123456@host.docker.internal:5432/Bank_DB
+        volumes:
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/dags:/opt/airflow/dags # DAGs folder
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/logs:/opt/airflow/logs # Logs
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/plugins:/opt/airflow/plugins
+            - /home/lapthanh/Documents/DW_PROJECT/entrypoint.sh:/usr/local/entrypoint.sh
+            - /home/lapthanh/Documents/DW_PROJECT/requirements.txt:/usr/local/requirements.txt
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/spark/app:/spark/app
+            - /home/lapthanh/Documents/DW_PROJECT/data:/data
+            - /home/lapthanh/Documents/DW_PROJECT/generate_fake_Data:/opt/airflow/fake
+        command: bash -c "pip install -r /usr/local/requirements.txt && airflow db upgrade && airflow scheduler"
+
+    # Spark with N workers
+    spark-master:
+        image: bitnami/spark:3.2.1
+        hostname: spark
+        networks:
+            - Bank_DB
+        environment:
+            - SPARK_MODE=master
+            - SPARK_RPC_AUTHENTICATION_ENABLED=no
+            - SPARK_RPC_ENCRYPTION_ENABLED=no
+            - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+            - SPARK_SSL_ENABLED=no
+            - SPARK_NETWORK_TIMEOUT=600s
+            - SPARK_EXECUTOR_HEARTBEAT_INTERVAL=60s
+            - SPARK_STORAGE_BLOCK_MANAGER_SLAVE_TIMEOUT_MS=60000
+        volumes:
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/spark/app:/app # Scripts (same path in airflow and spark)
+            - /home/lapthanh/Documents/postgresql-42.6.2.jar:/opt/bitnami/spark/jars/postgresql-42.6.2.jar
+            - /home/lapthanh/Documents/snowflake-jdbc-3.16.1.jar:/opt/bitnami/spark/jars/snowflake-jdbc-3.16.1.jar
+            - /home/lapthanh/Documents/spark-snowflake_2.12-2.16.0-spark_3.2.jar:/opt/bitnami/spark/jars/spark-snowflake_2.12-2.16.0-spark_3.2.jar
+            - /home/lapthanh/Documents/DW_PROJECT/data:/data
+        ports:
+            - "8081:8080"
+            - "7077:7077"
+
+    spark-worker:
+        image: bitnami/spark:3.2.1
+        networks:
+            - Bank_DB
+        environment:
+            - SPARK_MODE=worker
+            - SPARK_MASTER_URL=spark://spark:7077
+            - SPARK_WORKER_MEMORY=1G
+            - SPARK_WORKER_CORES=3
+            - SPARK_RPC_AUTHENTICATION_ENABLED=no
+            - SPARK_RPC_ENCRYPTION_ENABLED=no
+            - SPARK_LOCAL_STORAGE_ENCRYPTION_ENABLED=no
+            - SPARK_SSL_ENABLED=no
+            - SPARK_NETWORK_TIMEOUT=600s
+            - SPARK_EXECUTOR_HEARTBEAT_INTERVAL=60s
+            - SPARK_STORAGE_BLOCK_MANAGER_SLAVE_TIMEOUT_MS=60000
+        volumes:
+            - /home/lapthanh/Documents/DW_PROJECT/Airflow/spark/app:/apps # Scripts (same path in airflow and spark)
+            - /home/lapthanh/Documents/spark-snowflake_2.12-2.16.0-spark_3.2.jar:/opt/bitnami/spark/jars/spark-snowflake_2.12-2.16.0-spark_3.2.jar
+            - /home/lapthanh/Documents/snowflake-jdbc-3.16.1.jar:/opt/bitnami/spark/jars/snowflake-jdbc-3.16.1.jar
+            - /home/lapthanh/Documents/DW_PROJECT/data:/data
+
+networks:
+    Bank_DB:

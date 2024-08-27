@@ -1,0 +1,57 @@
+[2024-08-25T05:59:42.944+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-08-25T05:59:42.974+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_data_dag.run_python_script manual__2024-08-25T05:59:41.608319+00:00 [queued]>
+[2024-08-25T05:59:42.991+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_data_dag.run_python_script manual__2024-08-25T05:59:41.608319+00:00 [queued]>
+[2024-08-25T05:59:42.992+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 2
+[2024-08-25T05:59:43.013+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): run_python_script> on 2024-08-25 05:59:41.608319+00:00
+[2024-08-25T05:59:43.024+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=919) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2024-08-25T05:59:43.025+0000] {standard_task_runner.py:72} INFO - Started process 920 to run task
+[2024-08-25T05:59:43.024+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_data_dag', 'run_python_script', 'manual__2024-08-25T05:59:41.608319+00:00', '--job-id', '42', '--raw', '--subdir', 'DAGS_FOLDER/test.py', '--cfg-path', '/tmp/tmp1jdunqgj']
+[2024-08-25T05:59:43.028+0000] {standard_task_runner.py:105} INFO - Job 42: Subtask run_python_script
+[2024-08-25T05:59:43.104+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_data_dag.run_python_script manual__2024-08-25T05:59:41.608319+00:00 [running]> on host 05371bfc828b
+[2024-08-25T05:59:43.223+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_data_dag' AIRFLOW_CTX_TASK_ID='run_python_script' AIRFLOW_CTX_EXECUTION_DATE='2024-08-25T05:59:41.608319+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-08-25T05:59:41.608319+00:00'
+[2024-08-25T05:59:43.224+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-08-25T05:59:43.244+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2024-08-25T05:59:43.245+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /spark/app/extract.py']
+[2024-08-25T05:59:43.265+0000] {subprocess.py:86} INFO - Output:
+[2024-08-25T05:59:44.645+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng customers: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.646+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.647+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.648+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.649+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng accounts: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.651+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.652+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.653+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.654+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng transactions: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.654+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.655+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.656+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.657+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng branches: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.657+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.658+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.659+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.661+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng loans: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.662+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.663+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.664+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.665+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng credit_cards: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.666+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.667+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.668+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.669+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng transaction_history: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.670+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.671+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.672+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.674+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng payment: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.675+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.676+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.677+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.678+0000] {subprocess.py:93} INFO - Lỗi khi đọc bảng investments: (psycopg2.OperationalError) connection to server at "127.0.0.1", port 5432 failed: Connection refused
+[2024-08-25T05:59:44.678+0000] {subprocess.py:93} INFO - 	Is the server running on that host and accepting TCP/IP connections?
+[2024-08-25T05:59:44.679+0000] {subprocess.py:93} INFO - 
+[2024-08-25T05:59:44.679+0000] {subprocess.py:93} INFO - (Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2024-08-25T05:59:44.822+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2024-08-25T05:59:44.864+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-08-25T05:59:44.865+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=extract_data_dag, task_id=run_python_script, run_id=manual__2024-08-25T05:59:41.608319+00:00, execution_date=20240825T055941, start_date=20240825T055942, end_date=20240825T055944
+[2024-08-25T05:59:44.934+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2024-08-25T05:59:44.968+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-25T05:59:44.971+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
